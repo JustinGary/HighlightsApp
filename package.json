@@ -1,0 +1,17 @@
+{
+  "name": "highlightsapp",
+  "version": "1.0.0",
+  "description": "Read Kindle Highlights and surface them",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd client && npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://local_proxy@127.0.0.1:39709/git/JustinGary/HighlightsApp"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
