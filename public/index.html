@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlights - Knowledge Retention App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Highlights App</h1>
+            <p class="tagline">Your intelligent knowledge retention companion</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab active" data-view="upload">Upload</button>
+            <button class="tab" data-view="review">Review</button>
+            <button class="tab" data-view="library">Library</button>
+            <button class="tab" data-view="add">Add Note</button>
+        </nav>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-value" id="total-count">0</span>
+                <span class="stat-label">Total Highlights</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="due-count">0</span>
+                <span class="stat-label">Due for Review</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" id="reviewed-count">0</span>
+                <span class="stat-label">Reviewed</span>
+            </div>
+        </div>
+
+        <div id="upload-view" class="view active">
+            <div class="card">
+                <h2>Import Kindle Highlights</h2>
+                <p>Upload your Kindle highlights HTML file (My Clippings export)</p>
+                <form id="upload-form">
+                    <div class="file-input-wrapper">
+                        <input type="file" id="file-input" accept=".html,.htm" required>
+                        <label for="file-input">Choose File</label>
+                        <span id="file-name">No file selected</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Import Highlights</button>
+                </form>
+                <div id="upload-result"></div>
+                <div class="help-text">
+                    <h3>How to export Kindle highlights:</h3>
+                    <ol>
+                        <li>Go to <a href="https://read.amazon.com/notebook" target="_blank">read.amazon.com/notebook</a></li>
+                        <li>Select a book and view your highlights</li>
+                        <li>Use your browser's "Save Page As" to save the HTML file</li>
+                        <li>Upload the saved file here</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div id="review-view" class="view">
+            <div class="card">
+                <h2>Review Highlights</h2>
+                <p>Review highlights to strengthen your memory</p>
+                <div id="review-container">
+                    <div id="no-reviews" class="empty-state">
+                        No highlights due for review right now!
+                    </div>
+                    <div id="review-card" class="highlight-card" style="display: none;">
+                        <div class="book-info">
+                            <h3 id="review-book-title"></h3>
+                            <p class="author" id="review-author"></p>
+                        </div>
+                        <div class="highlight-text" id="review-text"></div>
+                        <div class="review-actions">
+                            <button class="btn btn-hard" data-rating="hard">Hard</button>
+                            <button class="btn btn-good" data-rating="good">Good</button>
+                            <button class="btn btn-easy" data-rating="easy">Easy</button>
+                        </div>
+                        <div class="review-info">
+                            <small id="review-meta"></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="library-view" class="view">
+            <div class="card">
+                <h2>Your Library</h2>
+                <div id="library-container">
+                    <div id="no-highlights" class="empty-state">
+                        No highlights yet. Upload some Kindle highlights to get started!
+                    </div>
+                    <div id="highlights-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="add-view" class="view">
+            <div class="card">
+                <h2>Add Manual Note</h2>
+                <form id="add-form">
+                    <div class="form-group">
+                        <label for="book-title">Book Title *</label>
+                        <input type="text" id="book-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="author">Author</label>
+                        <input type="text" id="author">
+                    </div>
+                    <div class="form-group">
+                        <label for="highlight-text">Highlight / Note *</label>
+                        <textarea id="highlight-text" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="note">Additional Notes</label>
+                        <textarea id="note" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Highlight</button>
+                </form>
+                <div id="add-result"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
