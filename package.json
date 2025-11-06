@@ -4,8 +4,12 @@
   "description": "Read Kindle Highlights and surface them",
   "main": "index.js",
   "scripts": {
-    "start": "cd client && npm start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "cd client && npm run dev",
+    "build": "cd client && npm run build",
+    "test": "cd client && npm test",
+    "lint": "cd client && npm run lint",
+    "format": "cd client && npm run format",
+    "prepare": "husky"
   },
   "repository": {
     "type": "git",
